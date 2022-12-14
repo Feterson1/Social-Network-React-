@@ -1,0 +1,18 @@
+.nav {
+  grid-area: n;
+  padding: 20px;
+  background-color: blueviolet;
+}
+.item a {
+  text-decoration:none;
+}
+.item{
+  /* text-decoration: none; */
+  color:white;
+}
+
+.active{
+  color: gold;
+ 
+}
+
