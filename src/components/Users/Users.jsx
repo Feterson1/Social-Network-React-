@@ -1,13 +1,18 @@
 import React from 'react';
 import style from './Users.module.css';
+import axios from "axios";
+import userPhoto from "../../assets/images/user.png"
 
 let Users = (props) => {
     
     if(props.users.length === 0 ){
-    props.setUsers([{ id: 1, photoUrl: 'https://lastfm.freetls.fastly.net/i/u/770x0/fb1e81f37b8463f1907a7da900252b08.jpg', followed: false, fullname: 'Dmitriy', status: 'I am a boss', location: { city: 'Temirtau', country: 'Kazakhstan' }, age: 19 },
-    { id: 2, photoUrl: 'https://lastfm.freetls.fastly.net/i/u/770x0/fb1e81f37b8463f1907a7da900252b08.jpg', followed: false, fullname: 'Kurt Cobain', status: 'Teen Spirit', location: { city: 'New York', country: 'USA' }, age: 27 },
-    { id: 3, photoUrl: 'https://lastfm.freetls.fastly.net/i/u/770x0/fb1e81f37b8463f1907a7da900252b08.jpg', followed: true, fullname: 'Jotaro Kujo', status: 'Yare Yare Daze', location: { city: 'Tokyo', country: 'Japan' }, age: 46 },
-    { id: 4, photoUrl: 'https://lastfm.freetls.fastly.net/i/u/770x0/fb1e81f37b8463f1907a7da900252b08.jpg', followed: true, fullname: 'Giorno Giovanna', status: 'MUDA MUDA MUDA', location: { city: 'Roma', country: 'Italy' }, age: 15 }]);
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+           
+        
+         props.setUsers(response.data.items);
+        
+        
+        });
     }
     
      
@@ -16,7 +21,7 @@ let Users = (props) => {
         props.users.map(u => <div key={u.id}>
             <span>
                 <div>
-                    <img src={u.photoUrl} className={style.userPhoto} alt="" />
+                    <img src={u.photos.small != null ? u.photos.small : userPhoto} className={style.userPhoto} alt="" />
                 </div>
                 <div>
 
@@ -35,10 +40,10 @@ let Users = (props) => {
 
             </span>
             <span>
-                <div>{u.fullname}</div><div>{u.status}</div>
+                <div>{u.name}</div><div>{u.status}</div>
             </span>
             <span>
-                <div>{u.location.country}</div><div>{u.location.city}</div>
+                {/* <div>{u.location.country}</div><div>{u.location.city}</div> */}
             </span>
 
         </div>)
