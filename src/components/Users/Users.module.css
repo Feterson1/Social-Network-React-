@@ -6,3 +6,13 @@
 .selectedPage{
     font-weight: bold;
 }
+
+button{
+    padding: 6px;
+    margin: 2px;
+    background: aquamarine;
+    outline: 0;
+    border: 0;
+    border-radius: 6px;
+    
+}
