@@ -1,6 +1,4 @@
 import React from 'react';
-import Preloader from '../common/preloader/preloader';
-import profile from '../profile/Profile.module.css';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
