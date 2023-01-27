@@ -1,4 +1,5 @@
 import React from 'react';
+import Preloader from '../common/preloader/preloader';
 import profile from '../profile/Profile.module.css';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
@@ -6,9 +7,13 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
 
+
+  
+
+
   return (
     <div>
-      <ProfileInfo />
+      <ProfileInfo profile = {props.profile}/>
       <MyPostsContainer/>
     </div>
   );
