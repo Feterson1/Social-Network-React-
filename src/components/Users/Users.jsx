@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
 import userPhoto from "../../assets/images/user.png";
 import styles from './Users.module.css';
 
@@ -43,14 +42,14 @@ const Users = (props) => {
                     <div>
 
                         {u.followed
-                            ? <button disabled={props.followingProgress.some(id => id == u.id)} onClick={() => {
+                            ? <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
 
                                    props.unFollow(u.id);
 
                                 
                             }}>Unfollow</button>
 
-                            : <button disabled={props.followingProgress.some(id => id == u.id)} onClick={() => {
+                            : <button disabled={props.followingProgress.some(id => id === u.id)} onClick={() => {
 
                                     props.follow(u.id);
                            
